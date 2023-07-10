@@ -1,9 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, Button, View, Image, SafeAreaView, Pressable, useFonts } from 'react-native';
-import { economica_400Regular, economica_700Bold } from '@expo-google-fonts/economica';
+import { StyleSheet, Text, Button, View, Image, SafeAreaView, Pressable, } from 'react-native';
+import { useFonts } from 'expo-font';
 
 export default function App() {
 
+  const [fontsLoaded] = useFonts({
+    'economica': require('./assets/fonts/Economica/Economica-Regular.ttf'),
+  });
+
+  if (!fontsLoaded) {
+    return null; // Render a placeholder or loading screen until fonts are loaded
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -46,18 +53,21 @@ const styles = StyleSheet.create({
   text:{
     color: 'white',
     fontSize: 20,
+    fontFamily: 'economica',
   },
   dateHeaders:{
     width: '85%',
     backgroundColor: 'black',
     alignItems: 'center',
-    borderWidth: 5,
+    borderWidth: 7,
     borderStyle: 'solid',
     marginVertical: 10,
+    paddingVertical: 8,
   },
   headerText:{
     fontSize: 30,
     color: 'white',
+    fontFamily: 'economica',
   },
   monHeader:{
     borderColor: '#147095',
