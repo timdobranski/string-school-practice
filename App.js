@@ -18,8 +18,12 @@ export default function App() {
       <Image
         style={styles.logo}
         source={require('./assets/lmss-logo.png')}
-        resizeMode='contain'/>
+        resizeMode='stretch'
+        resizeMethod='resize'
+      />
       <Text style={styles.text}>Welcome to the String School mobile app!!</Text>
+
+
 
       <Pressable style={[styles.monHeader, styles.dateHeaders]}>
         <Text style={styles.headerText}>Monday, July 10th</Text>
@@ -124,7 +128,10 @@ export default function App() {
         <Text style={[styles.cell, styles.time]}>7:30</Text>
         <Text style={[styles.spot, styles.sunOpen, styles.cell]}>Open!</Text>
       </Pressable>
-      {/* <Pressable style="auto" /> */}
+      <Pressable style="auto" />
+    <View style={styles.footer}>
+      {/* <Text style={styles.bookedText}>Copyright 2023 Tim Dobranski</Text> */}
+    </View>
     </View>
     </ScrollView>
   );
@@ -136,19 +143,26 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    borderColor: 'green',
-    borderWidth: 5,
-    borderStyle: 'solid',
+    // borderColor: 'green',
+    // borderWidth: 5,
+    // borderStyle: 'solid',
   },
   logo:{
     width: '85%',
+    marginTop: 50,
+    marginBottom: 50,
+    aspectRatio: 5,
+    height: '30%',
     flex:1,
     justifyContent: 'flex-start',
+    paddingVertical: 20,
+
   },
   text:{
     color: 'white',
     fontSize: 20,
     fontFamily: 'economica',
+    marginBottom: 30,
   },
   dateHeaders:{
     width: '80%',
@@ -226,5 +240,9 @@ const styles = StyleSheet.create({
   },
   bookedText:{
     fontSize: 20,
+  },
+  footer:{
+    margin: 20,
+    padding: 20
   }
 });
