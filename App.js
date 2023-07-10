@@ -3,10 +3,7 @@ import { StyleSheet, Text, Button, View, Image, SafeAreaView, Pressable, useFont
 import { economica_400Regular, economica_700Bold } from '@expo-google-fonts/economica';
 
 export default function App() {
-  const [fontsLoaded] = useFonts({
-    economica_400Regular,
-    economica_700Bold,
-  });
+
 
   return (
     <SafeAreaView style={styles.container}>
@@ -15,19 +12,19 @@ export default function App() {
         source={require('./assets/lmss-logo.png')}
         resizeMode='contain'/>
       <Text style={styles.text}>Welcome to the String School mobile app!!</Text>
-      <Pressable style={styles.monHeader}>
+      <Pressable style={[styles.monHeader, styles.dateHeaders]}>
         <Text style={styles.headerText}>Monday, July 10th</Text>
       </Pressable>
-      <Pressable style={styles.tuesHeader}>
+      <Pressable style={[styles.tuesHeader,  styles.dateHeaders]}>
         <Text style={styles.headerText}>Tuesday, July 11th</Text>
       </Pressable>
-      <Pressable style={styles.wedHeader}>
+      <Pressable style={[styles.wedHeader,  styles.dateHeaders]}>
         <Text style={styles.headerText}>Wednesday, July 12th</Text>
       </Pressable>
-      <Pressable style={styles.thursHeader}>
+      <Pressable style={[styles.thursHeader, styles.dateHeaders]}>
         <Text style={styles.headerText}>Thursday, July 13th</Text>
       </Pressable>
-      <Pressable style={styles.sunHeader}>
+      <Pressable style={[styles.sunHeader, styles.dateHeaders]}>
         <Text style={styles.headerText}>Sunday, July 16th</Text>
       </Pressable>
       <Pressable style="auto" />
@@ -50,51 +47,52 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 20,
   },
-  header:{
+  dateHeaders:{
     width: '85%',
     backgroundColor: 'black',
-
+    alignItems: 'center',
+    borderWidth: 5,
+    borderStyle: 'solid',
+    marginVertical: 10,
+  },
+  headerText:{
+    fontSize: 30,
+    color: 'white',
   },
   monHeader:{
-    borderWidth: '5px',
-    borderStyle: 'solid',
     borderColor: '#147095',
-    backgroundColor: 'white',
   },
   monBooked:{
   },
   monOpen:{
   },
   tuesHeader:{
-
+    borderColor: '#2fc02d',
   },
   tuesBooked:{
   },
   tuesOpen:{
   },
   wedHeader:{
-
+    borderColor: '#ff2d2b',
   },
   wedBooked:{
   },
   wedOpen:{
   },
   thursHeader:{
-
+    borderColor: '#ffb62b',
   },
   thursBooked:{
   },
   thursOpen:{
   },
   sunHeader:{
-
+    borderColor: '#a64d79',
   },
   sunBooked:{
   },
   sunOpen:{
-  },
-  headerText:{
-    fontSize: 30,
   },
   bookedText:{
     fontSize: 20,
