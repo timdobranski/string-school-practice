@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, Button, View, Image, SafeAreaView, Pressable, } from 'react-native';
+import { StyleSheet, Text, Button, View, Image, ScrollView, Pressable } from 'react-native';
 import { useFonts } from 'expo-font';
 
 export default function App() {
@@ -13,29 +13,120 @@ export default function App() {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
+    <ScrollView>
+    <View style={styles.container}>
       <Image
         style={styles.logo}
         source={require('./assets/lmss-logo.png')}
         resizeMode='contain'/>
       <Text style={styles.text}>Welcome to the String School mobile app!!</Text>
+
       <Pressable style={[styles.monHeader, styles.dateHeaders]}>
         <Text style={styles.headerText}>Monday, July 10th</Text>
       </Pressable>
+      <Pressable style={styles.row}>
+        <Text style={[styles.cell, styles.time]}>6:00</Text>
+        <Text style={[styles.spot, styles.monOpen, styles.cell]}>Open!</Text>
+      </Pressable>
+      <Pressable style={styles.row}>
+        <Text style={[styles.cell, styles.time]}>6:30</Text>
+        <Text style={[styles.spot, styles.monOpen, styles.cell]}>Open!</Text>
+      </Pressable>
+      <Pressable style={styles.row}>
+        <Text style={[styles.cell, styles.time]}>7:00</Text>
+        <Text style={[styles.spot, styles.monOpen, styles.cell]}>Open!</Text>
+      </Pressable>
+      <Pressable style={styles.row}>
+        <Text style={[styles.cell, styles.time]}>7:30</Text>
+        <Text style={[styles.spot, styles.monOpen, styles.cell]}>Open!</Text>
+      </Pressable>
+
+
       <Pressable style={[styles.tuesHeader,  styles.dateHeaders]}>
         <Text style={styles.headerText}>Tuesday, July 11th</Text>
       </Pressable>
+      <Pressable style={styles.row}>
+        <Text style={[styles.cell, styles.time]}>6:00</Text>
+        <Text style={[styles.spot, styles.tuesOpen, styles.cell]}>Open!</Text>
+      </Pressable>
+      <Pressable style={styles.row}>
+        <Text style={[styles.cell, styles.time]}>6:30</Text>
+        <Text style={[styles.spot, styles.tuesOpen, styles.cell]}>Open!</Text>
+      </Pressable>
+      <Pressable style={styles.row}>
+        <Text style={[styles.cell, styles.time]}>7:00</Text>
+        <Text style={[styles.spot, styles.tuesOpen, styles.cell]}>Open!</Text>
+      </Pressable>
+      <Pressable style={styles.row}>
+        <Text style={[styles.cell, styles.time]}>7:30</Text>
+        <Text style={[styles.spot, styles.tuesOpen, styles.cell]}>Open!</Text>
+      </Pressable>
+
+
       <Pressable style={[styles.wedHeader,  styles.dateHeaders]}>
         <Text style={styles.headerText}>Wednesday, July 12th</Text>
       </Pressable>
+      <Pressable style={styles.row}>
+        <Text style={[styles.cell, styles.time]}>6:00</Text>
+        <Text style={[styles.spot, styles.wedOpen, styles.cell]}>Open!</Text>
+      </Pressable>
+      <Pressable style={styles.row}>
+        <Text style={[styles.cell, styles.time]}>6:30</Text>
+        <Text style={[styles.spot, styles.wedOpen, styles.cell]}>Open!</Text>
+      </Pressable>
+      <Pressable style={styles.row}>
+        <Text style={[styles.cell, styles.time]}>7:00</Text>
+        <Text style={[styles.spot, styles.wedOpen, styles.cell]}>Open!</Text>
+      </Pressable>
+      <Pressable style={styles.row}>
+        <Text style={[styles.cell, styles.time]}>7:30</Text>
+        <Text style={[styles.spot, styles.wedOpen, styles.cell]}>Open!</Text>
+      </Pressable>
+
+
       <Pressable style={[styles.thursHeader, styles.dateHeaders]}>
         <Text style={styles.headerText}>Thursday, July 13th</Text>
       </Pressable>
+      <Pressable style={styles.row}>
+        <Text style={[styles.cell, styles.time]}>6:00</Text>
+        <Text style={[styles.spot, styles.thursOpen, styles.cell]}>Open!</Text>
+      </Pressable>
+      <Pressable style={styles.row}>
+        <Text style={[styles.cell, styles.time]}>6:30</Text>
+        <Text style={[styles.spot, styles.thursOpen, styles.cell]}>Open!</Text>
+      </Pressable>
+      <Pressable style={styles.row}>
+        <Text style={[styles.cell, styles.time]}>7:00</Text>
+        <Text style={[styles.spot, styles.thursOpen, styles.cell]}>Open!</Text>
+      </Pressable>
+      <Pressable style={styles.row}>
+        <Text style={[styles.cell, styles.time]}>7:30</Text>
+        <Text style={[styles.spot, styles.thursOpen, styles.cell]}>Open!</Text>
+      </Pressable>
+
+
       <Pressable style={[styles.sunHeader, styles.dateHeaders]}>
         <Text style={styles.headerText}>Sunday, July 16th</Text>
       </Pressable>
-      <Pressable style="auto" />
-    </SafeAreaView>
+      <Pressable style={styles.row}>
+        <Text style={[styles.cell, styles.time]}>6:00</Text>
+        <Text style={[styles.spot, styles.sunOpen, styles.cell]}>Open!</Text>
+      </Pressable>
+      <Pressable style={styles.row}>
+        <Text style={[styles.cell, styles.time]}>6:30</Text>
+        <Text style={[styles.spot, styles.sunOpen, styles.cell]}>Open!</Text>
+      </Pressable>
+      <Pressable style={styles.row}>
+        <Text style={[styles.cell, styles.time]}>7:00</Text>
+        <Text style={[styles.spot, styles.sunOpen, styles.cell]}>Open!</Text>
+      </Pressable>
+      <Pressable style={styles.row}>
+        <Text style={[styles.cell, styles.time]}>7:30</Text>
+        <Text style={[styles.spot, styles.sunOpen, styles.cell]}>Open!</Text>
+      </Pressable>
+      {/* <Pressable style="auto" /> */}
+    </View>
+    </ScrollView>
   );
 }
 
@@ -45,10 +136,14 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
     alignItems: 'center',
     justifyContent: 'flex-start',
+    borderColor: 'green',
+    borderWidth: 5,
+    borderStyle: 'solid',
   },
   logo:{
     width: '85%',
-
+    flex:1,
+    justifyContent: 'flex-start',
   },
   text:{
     color: 'white',
@@ -56,18 +151,38 @@ const styles = StyleSheet.create({
     fontFamily: 'economica',
   },
   dateHeaders:{
-    width: '85%',
+    width: '80%',
     backgroundColor: 'black',
     alignItems: 'center',
     borderWidth: 7,
     borderStyle: 'solid',
-    marginVertical: 10,
+    marginVertical: 8,
     paddingVertical: 8,
   },
   headerText:{
-    fontSize: 30,
-    color: 'white',
     fontFamily: 'economica',
+    fontSize: 26,
+    color: 'white',
+  },
+  row:{
+    flexDirection: 'row',
+    alignItems: 'center',
+    textAlign: 'center',
+    fontFamily: 'economica',
+  },
+  cell:{
+    fontFamily: 'economica',
+    fontSize: 22,
+    borderWidth: 1
+  },
+  spot:{
+    width: '55%',
+    textAlign: 'center',
+  },
+  time:{
+    backgroundColor: 'white',
+    width: '10%',
+    textAlign: 'center',
   },
   monHeader:{
     borderColor: '#147095',
@@ -75,6 +190,7 @@ const styles = StyleSheet.create({
   monBooked:{
   },
   monOpen:{
+    backgroundColor: '#9fc5e8',
   },
   tuesHeader:{
     borderColor: '#2fc02d',
@@ -82,6 +198,7 @@ const styles = StyleSheet.create({
   tuesBooked:{
   },
   tuesOpen:{
+    backgroundColor: '#b1fcb0'
   },
   wedHeader:{
     borderColor: '#ff2d2b',
@@ -89,6 +206,7 @@ const styles = StyleSheet.create({
   wedBooked:{
   },
   wedOpen:{
+    backgroundColor: '#ea9999'
   },
   thursHeader:{
     borderColor: '#ffb62b',
@@ -96,6 +214,7 @@ const styles = StyleSheet.create({
   thursBooked:{
   },
   thursOpen:{
+    backgroundColor: '#fff2cc'
   },
   sunHeader:{
     borderColor: '#a64d79',
@@ -103,6 +222,7 @@ const styles = StyleSheet.create({
   sunBooked:{
   },
   sunOpen:{
+    backgroundColor: '#d5a6bd'
   },
   bookedText:{
     fontSize: 20,
