@@ -9,7 +9,7 @@ export default function App() {
   });
 
   if (!fontsLoaded) {
-    return null; // Render a placeholder or loading screen until fonts are loaded
+    return null;
   }
 
   return (
@@ -23,7 +23,12 @@ export default function App() {
       />
       <Text style={styles.text}>Welcome to the String School mobile app!!</Text>
 
-
+      <Text style={styles.weekOf}>Week of:</Text>
+      <Pressable style={styles.nav}>
+        <Text style={[styles.navLeft]}>{'<'}</Text>
+        <Text style={[styles.navCenter]}>7/10 - 7/17</Text>
+        <Text style={styles.navRight}>{'>'}</Text>
+      </Pressable>
 
       <Pressable style={[styles.monHeader, styles.dateHeaders]}>
         <Text style={styles.headerText}>Monday, July 10th</Text>
@@ -143,9 +148,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    // borderColor: 'green',
-    // borderWidth: 5,
-    // borderStyle: 'solid',
+
   },
   logo:{
     width: '85%',
@@ -156,7 +159,33 @@ const styles = StyleSheet.create({
     flex:1,
     justifyContent: 'flex-start',
     paddingVertical: 20,
-
+  },
+  weekOf:{
+    color: 'white',
+    marginBottom: 0,
+    fontFamily: 'economica',
+    fontSize: 25,
+  },
+  nav:{
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    textAlign: 'center',
+  },
+  navLeft:{
+    color: 'white',
+    fontSize: 40,
+    marginRight: 40,
+  },
+  navCenter:{
+    color: 'white',
+    fontSize:30,
+    textAlign: 'center',
+  },
+  navRight:{
+    color: 'white',
+    fontSize: 40,
+    marginLeft: 40,
   },
   text:{
     color: 'white',
@@ -165,12 +194,13 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   dateHeaders:{
-    width: '80%',
+    width: '75%',
     backgroundColor: 'black',
     alignItems: 'center',
-    borderWidth: 7,
+    borderWidth: 10,
     borderStyle: 'solid',
-    marginVertical: 8,
+    marginTop: 20,
+    marginBottom: 0,
     paddingVertical: 8,
   },
   headerText:{
