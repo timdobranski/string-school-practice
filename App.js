@@ -1,17 +1,42 @@
+import 'react-native-url-polyfill/auto';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, ScrollView, Pressable } from 'react-native';
 import { useFonts } from 'expo-font';
+//import { Constants } from 'expo-constants';
+import { createClient } from '@supabase/supabase-js';
 
 export default function App() {
-
+  // Font handling
   const [fontsLoaded] = useFonts({
     'economica': require('./assets/fonts/Economica/Economica-Regular.ttf'),
   });
-
   if (!fontsLoaded) {
     return null;
   }
+  // Supabase handling
+  const SUPABASE_URL = process.env.EXPO_PUBLIC_SUPABASE_URL;
+  const SUPABASE_API_KEY = process.env.EXPO_PUBLIC_SUPABASE_API_KEY;
+  // console.log('supabase: ', SUPABASE_API_KEY, SUPABASE_URL)
+  const supabase = createClient(SUPABASE_URL, SUPABASE_API_KEY);
 
+  const fetchStudents = async () => {
+    try {
+      const { data, error } = await supabase.from('students').select('first_name');
+      if (error) {
+        console.error('Error fetching students:', error.message);
+      } else {
+        console.log('Students:', data);
+      }
+    } catch (error) {
+      console.error('Error:', error.message);
+    }
+  };
+
+  // Call the fetchStudents function to initiate the data retrieval
+  fetchStudents();
+
+
+  console.log('supabase: ', SUPABASE_API_KEY, SUPABASE_URL)
   return (
     <ScrollView>
     <View style={styles.container}>
@@ -161,7 +186,7 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
   },
   weekOf:{
-    color: 'white',
+    color: 'black',
     marginBottom: 0,
     fontFamily: 'economica',
     fontSize: 25,
