@@ -73,8 +73,9 @@ const styles = StyleSheet.create({
   },
   cell:{
     fontFamily: 'economica',
-    fontSize: 22,
+    fontSize: 24,
     borderWidth: 1,
+    paddingVertical: 5,
 
   },
   spot:{

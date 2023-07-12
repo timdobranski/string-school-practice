@@ -3,6 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 import { useFonts } from 'expo-font';
 import Schedule from './src/components/Schedule/Schedule';
+import Header from './src/components/Header/Header';
 
 const bgDim = process.env.EXPO_PUBLIC_BG_DIM;
 console.log('bgDim: ', bgDim);
@@ -24,12 +25,13 @@ export default function App() {
       />
       <ScrollView>
       <View style={styles.container}>
-        <Image
+        {/* <Image
           style={styles.logo}
           source={require('./assets/images/lmss-logo.png')}
           resizeMode='stretch'
           resizeMethod='resize'
-        />
+        /> */}
+        <Header />
         <Text style={styles.text}>
           {`
           Welcome to the String School mobile app.
