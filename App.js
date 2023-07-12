@@ -17,7 +17,7 @@ export default function App() {
   return (
     <View >
       <Image
-        source={require('./assets/images/backgroundVerticalDim.jpg')}
+        source={require('./assets/images/backgroundVerticalDimmer.jpg')}
         style={styles.backgroundImage}
         resizeMode='cover'
       />
@@ -237,6 +237,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderWidth: 10,
     borderStyle: 'solid',
+    borderRadius: 3,
     marginTop: 20,
     marginBottom: 0,
     paddingVertical: 8,
@@ -251,11 +252,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     textAlign: 'center',
     fontFamily: 'economica',
+
   },
   cell:{
     fontFamily: 'economica',
     fontSize: 22,
-    borderWidth: 1
+    borderWidth: 1,
+
   },
   spot:{
     width: '55%',
