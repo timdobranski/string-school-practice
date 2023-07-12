@@ -15,18 +15,34 @@ export default function App() {
 
 
   return (
-    <SafeAreaView >
+    <View >
+      <Image
+        source={require('./assets/images/backgroundVerticalDim.jpg')}
+        style={styles.backgroundImage}
+        resizeMode='cover'
+      />
 
     <ScrollView>
     <View style={styles.container}>
       <Image
         style={styles.logo}
-        source={require('./assets/lmss-logo.png')}
+        source={require('./assets/images/lmss-logo.png')}
         resizeMode='stretch'
         resizeMethod='resize'
       />
-      <Text style={styles.text}>Welcome to the String School mobile app!!</Text>
+      <Text style={styles.text}>
+        {`Welcome to the String School mobile app!!\n
+        Sign in to manage scheduling, payments, progress, & practice!`}
+      </Text>
 
+      <Text style={styles.text}>
+        {`Welcome to the String School mobile app!!\n
+        Sign in to manage scheduling, payments, progress, & practice!`}
+      </Text>
+
+      <Pressable style={styles.signInButton}>
+        <Text style={[styles.signInText]}>Sign In</Text>
+      </Pressable>
       <Text style={styles.weekOf}>Week of:</Text>
       <Pressable style={styles.nav}>
         <Text style={[styles.navLeft]}>{'<'}</Text>
@@ -138,22 +154,30 @@ export default function App() {
         <Text style={[styles.spot, styles.sunOpen, styles.cell]}>Open!</Text>
       </Pressable>
       <Pressable style="auto" />
-    <View style={styles.footer}>
-      {/* <Text style={styles.bookedText}>Copyright 2023 Tim Dobranski</Text> */}
     </View>
-    </View>
+
     </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'black',
+    // backgroundColor: 'black',
     alignItems: 'center',
     justifyContent: 'flex-start',
-
+    height: '100%',
+    width: '100%',
+  },
+  backgroundImage: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    resizeMode: 'cover',
+    zIndex: -1,
   },
   logo:{
     width: '85%',
@@ -197,6 +221,17 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontFamily: 'economica',
     marginBottom: 30,
+    textAlign: 'center',
+  },
+  signInButton:{
+    textAlign: 'center',
+    backgroundColor: '#147095',
+    alignItems: 'center',
+  },
+  signInText:{
+    color: 'white',
+    textAlign: 'center',
+    alignItems: 'center',
   },
   dateHeaders:{
     width: '75%',
