@@ -31,19 +31,16 @@ export default function App() {
         resizeMethod='resize'
       />
       <Text style={styles.text}>
-        {`Welcome to the String School mobile app!!\n
-        Sign in to manage scheduling, payments, progress, & practice!`}
+        {`
+        Welcome to the String School mobile app.
+        Current students can sign in here.`}
       </Text>
 
       <Text style={styles.text}>
-        {`Welcome to the String School mobile app!!\n
-        Sign in to manage scheduling, payments, progress, & practice!`}
+        {`To book new lessons, choose a spot below for a free introductory session`}
       </Text>
 
-      <Pressable style={styles.signInButton}>
-        <Text style={[styles.signInText]}>Sign In</Text>
-      </Pressable>
-      <Text style={styles.weekOf}>Week of:</Text>
+      {/* <Text style={styles.weekOf}>Week of:</Text> */}
       <Pressable style={styles.nav}>
         <Text style={[styles.navLeft]}>{'<'}</Text>
         <Text style={[styles.navCenter]}>7/10 - 7/17</Text>
@@ -180,9 +177,9 @@ const styles = StyleSheet.create({
     zIndex: -1,
   },
   logo:{
-    width: '85%',
-    marginTop: 50,
-    marginBottom: 50,
+    width: '90%',
+    marginTop: 60,
+    marginBottom: 20,
     aspectRatio: 5,
     height: '30%',
     flex:1,
@@ -190,7 +187,7 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
   },
   weekOf:{
-    color: 'black',
+    color: 'white',
     marginBottom: 0,
     fontFamily: 'economica',
     fontSize: 25,
@@ -218,10 +215,11 @@ const styles = StyleSheet.create({
   },
   text:{
     color: 'white',
-    fontSize: 20,
+    fontSize: 22,
     fontFamily: 'economica',
     marginBottom: 30,
     textAlign: 'center',
+    marginHorizontal: 20,
   },
   signInButton:{
     textAlign: 'center',
