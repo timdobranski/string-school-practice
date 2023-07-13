@@ -1,5 +1,5 @@
-import {View, Text, Pressable, Image, StyleSheet } from 'react-native';
-import { FontAwesome, Ionicons, AntDesign, MaterialIcons } from '@expo/vector-icons';
+import {View, Text, StyleSheet } from 'react-native';
+import { FontAwesome, AntDesign, MaterialIcons } from '@expo/vector-icons';
 
 
 

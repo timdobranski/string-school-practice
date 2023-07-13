@@ -1,10 +1,17 @@
-import { Text, View, Pressable } from 'react-native';
+import { Text, View, ScrollView, Pressable } from 'react-native';
 import styles from './scheduleStyling.js';
-
+import { useNavigation } from '@react-navigation/native';
 
 export default function Schedule () {
+  const navigation = useNavigation();
+
+  const navigateToSignupNew = () => {
+    navigation.navigate('SignupNew');
+  };
+
   return (
-  <View style={styles.scheduleContainer}>
+    <ScrollView style={styles.scrollView}>
+      <View style={styles.contentContainer}>
   <Pressable style={styles.nav}>
     <Text style={[styles.navLeft]}>{'<'}</Text>
     <Text style={[styles.navCenter]}>July 10th - July 17th</Text>
@@ -14,7 +21,7 @@ export default function Schedule () {
       <Pressable style={[styles.monHeader, styles.dateHeaders]}>
         <Text style={styles.headerText}>Monday, July 10th</Text>
       </Pressable>
-      <Pressable style={styles.row}>
+      <Pressable style={styles.row} onPress={navigateToSignupNew}>
         <Text style={[styles.cell, styles.time]}>6:00</Text>
         <Text style={[styles.spot, styles.monOpen, styles.cell]}>Open!</Text>
       </Pressable>
@@ -114,6 +121,7 @@ export default function Schedule () {
         <Text style={[styles.cell, styles.time]}>7:30</Text>
         <Text style={[styles.spot, styles.sunOpen, styles.cell]}>Open!</Text>
       </Pressable>
-  </View>
+      </View>
+  </ScrollView>
   )
 }

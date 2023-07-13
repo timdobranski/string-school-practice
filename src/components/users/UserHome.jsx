@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { supabase } from '../../../supabase';
-import { StyleSheet, View, Alert } from 'react-native';
+import supabase from '../../../supabase';
+import { StyleSheet, View, Alert, Text } from 'react-native';
 import { Button, Input } from 'react-native-elements';
 
-export default function Account({ session }) {
+export default function UserHome({ session }) {
   const [loading, setLoading] = useState(true);
   const [username, setUsername] = useState('');
   const [website, setWebsite] = useState('');
@@ -70,6 +70,7 @@ export default function Account({ session }) {
 
   return (
     <View style={styles.container}>
+      <Text style={styles.text}>TEST!!!!</Text>
       <View style={[styles.verticallySpaced, styles.mt20]}>
         <Input label="Email" value={session?.user?.email} disabled />
       </View>
@@ -107,6 +108,7 @@ const styles = StyleSheet.create({
   container: {
     marginTop: 40,
     padding: 12,
+    width: '80%',
   },
   verticallySpaced: {
     paddingTop: 4,
@@ -116,4 +118,7 @@ const styles = StyleSheet.create({
   mt20: {
     marginTop: 20,
   },
-});
+  text: {
+    color: 'white',
+  }
+})

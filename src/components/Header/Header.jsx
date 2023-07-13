@@ -1,60 +1,30 @@
-import { View, Text, Pressable, Image, StyleSheet } from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
 
-export default function Header () {
-
+export default function Header() {
   return (
+    <View style={styles.headerContainer}>
       <Image
-          style={styles.logo}
-          source={require('../../../assets/images/lmss-logo.png')}
-          resizeMode='stretch'
-          resizeMethod='resize'
+        style={styles.logo}
+        source={require('../../../assets/images/lmss-logo.png')}
+        resizeMode='contain'
       />
-  )
+    </View>
+  );
 }
-
-// const styles = StyleSheet.create({
-//   headerContainer:{
-//     width: '100%',
-//     marginTop: 40,
-//     marginBottom: 20,
-//     aspectRatio: 5,
-//     height: '30%',
-//     flex:1,
-//     justifyContent: 'center',
-//     paddingVertical: 20,
-//     backgroundColor: '#fff',
-//     alignItems: 'center',
-//   },
-//   logo:{
-//     width: '90%',
-//     marginTop: 60,
-//     marginBottom: 20,
-//     aspectRatio: 5,
-//     height: '30%',
-//     flex:1,
-//     justifyContent: 'flex-start',
-//     paddingVertical: 20,
-//   },
-// });
 
 const styles = StyleSheet.create({
   headerContainer: {
-    // width: '80%',
-    marginTop: 40,
-    marginBottom: 20,
+    width: '85%',
     aspectRatio: 5,
-    //height: '30%',
+    alignSelf: 'center',
     justifyContent: 'center',
     alignItems: 'center',
-
+    marginTop: 20,
+    marginBottom: 20,
   },
   logo: {
-    width: '80%',
-    aspectRatio: 5,
+    flex: 1,
+    width: '100%',
     resizeMode: 'contain',
-    alignItems: 'center',
-    height: '5%',
-    marginTop: 60,
-    marginBottom: 20,
   },
 });

@@ -3,11 +3,16 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   scheduleContainer:{
     flex: 1,
-    // backgroundColor: 'black',
+    backgroundColor: 'black',
     alignItems: 'center',
     justifyContent: 'flex-start',
     height: '100%',
     width: '100%',
+  },
+  contentContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0)',
   },
   nav:{
     flexDirection: 'row',

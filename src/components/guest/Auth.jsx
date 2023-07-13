@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
   container: {
     marginTop: 40,
     padding: 12,
-    width: '80%',
+    width: '100%',
   },
   verticallySpaced: {
     paddingTop: 4,
