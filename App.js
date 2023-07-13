@@ -49,13 +49,13 @@ const App = () => {
         <NavigationContainer>
           <Stack.Navigator>
             {session && session.user ? (
-              <Stack.Screen name="UserHome">
+              <Stack.Screen name="User Home">
                 {(props) => <UserHome {...props} session={session} />}
               </Stack.Screen>
             ) : (
-              <Stack.Screen name="GuestHome" component={GuestHome} />
+              <Stack.Screen name="Guest View" component={GuestHome} />
             )}
-            <Stack.Screen name="SignupNew" component={SignupNew} />
+            <Stack.Screen name="New User Signup" component={SignupNew} />
           </Stack.Navigator>
         </NavigationContainer>
       </ImageBackground>

@@ -6,11 +6,11 @@ export default function Schedule () {
   const navigation = useNavigation();
 
   const navigateToSignupNew = () => {
-    navigation.navigate('SignupNew');
+    navigation.navigate('New User Signup');
   };
 
   return (
-    <ScrollView style={styles.scrollView}>
+    // <ScrollView style={styles.scrollView}>
       <View style={styles.contentContainer}>
   <Pressable style={styles.nav}>
     <Text style={[styles.navLeft]}>{'<'}</Text>
@@ -122,6 +122,6 @@ export default function Schedule () {
         <Text style={[styles.spot, styles.sunOpen, styles.cell]}>Open!</Text>
       </Pressable>
       </View>
-  </ScrollView>
+  // </ScrollView>
   )
 }
