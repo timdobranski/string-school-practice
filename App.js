@@ -7,12 +7,13 @@ import supabase from './supabase';
 import { Session } from '@supabase/supabase-js';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import Header from './src/components/Header/Header';
-import Footer from './src/components/Footer/Footer';
+//import Header from './src/components/Header/Header';
+//import Footer from './src/components/Footer/Footer';
 import GuestHome from './src/components/guest/GuestHome';
 import UserHome from './src/components/users/UserHome';
 import SignupNew from './src/components/guest/SignupNew';
-import Background from './src/components/Background';
+import SignInView from './src/components/guest/SignInView';
+//import Background from './src/components/Background';
 
 const bgDim = process.env.EXPO_PUBLIC_BG_DIM;
 const Stack = createStackNavigator();
@@ -56,6 +57,7 @@ const App = () => {
               <Stack.Screen name="Guest View" component={GuestHome} />
             )}
             <Stack.Screen name="New User Signup" component={SignupNew} />
+            <Stack.Screen name="Sign In" component={SignInView} />
           </Stack.Navigator>
         </NavigationContainer>
       </ImageBackground>

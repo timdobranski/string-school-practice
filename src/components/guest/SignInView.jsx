@@ -1,4 +1,4 @@
-import SignUp from './SignUp';
+import SignIn from './SignIn';
 import { View, Text, Pressable, ImageBackground, StyleSheet, ScrollView } from 'react-native';
 
 const SignupNew = () => {
@@ -13,14 +13,12 @@ const SignupNew = () => {
           <Text style={styles.spotText}>Monday, July 10th @ 7:00</Text>
         </View>
 
-        <Text style={styles.text}>{ `To book this spot for a free intro session, please fill in the fields below.\n
-This info is collected to allow for communication before your intro session, but once signed up you'll\
- also be able to access the rest of the app.`}
+        <Text style={styles.text}>{ `Sign In Below:`}
         </Text>
 
 
 
-        <SignUp />
+        <SignIn />
 
       </ScrollView>
     </ImageBackground>
