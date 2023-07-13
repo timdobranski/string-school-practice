@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
   navCenter:{
     color: 'white',
     fontSize:30,
+    fontFamily: 'economica',
     textAlign: 'center',
   },
   navRight:{

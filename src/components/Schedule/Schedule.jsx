@@ -7,7 +7,7 @@ export default function Schedule () {
   <View style={styles.scheduleContainer}>
   <Pressable style={styles.nav}>
     <Text style={[styles.navLeft]}>{'<'}</Text>
-    <Text style={[styles.navCenter]}>July 10th - 17th</Text>
+    <Text style={[styles.navCenter]}>July 10th - July 17th</Text>
     <Text style={styles.navRight}>{'>'}</Text>
   </Pressable>
 

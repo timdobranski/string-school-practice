@@ -43,13 +43,13 @@ const styles = StyleSheet.create({
     marginTop: 40,
     marginBottom: 20,
     aspectRatio: 5,
-    height: '30%',
+    //height: '30%',
     justifyContent: 'center',
     alignItems: 'center',
 
   },
   logo: {
-    width: '-50%',
+    width: '80%',
     aspectRatio: 5,
     resizeMode: 'contain',
     alignItems: 'center',

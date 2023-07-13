@@ -1,5 +1,6 @@
 import {View, Text, Pressable, Image, StyleSheet } from 'react-native';
-import { FontAwesome } from '@expo/vector-icons';
+import { FontAwesome, Ionicons, AntDesign, MaterialIcons } from '@expo/vector-icons';
+
 
 
 export default function Footer () {
@@ -13,27 +14,27 @@ export default function Footer () {
       </View> */}
 
       <View style={styles.iconContainer}>
-        <FontAwesome name="calendar" style={styles.icons}  />
-        <Text style={styles.text}>Schedule</Text>
+        <AntDesign name="calendar" style={styles.icons}  />
+        <Text style={styles.text}>Scheduling</Text>
       </View>
 
       <View style={styles.iconContainer}>
-        <FontAwesome name='dollar' style={styles.icons}  />
+        <FontAwesome name='credit-card-alt' style={styles.icons}  />
         <Text style={styles.text}>Payments</Text>
       </View>
 
       <View style={styles.iconContainer}>
-        <FontAwesome name="check" style={styles.icons}  />
+        <MaterialIcons name="timer" style={styles.icons}  />
         <Text style={styles.text}>Practice</Text>
       </View>
 
       <View style={styles.iconContainer}>
-        <FontAwesome name="list" style={styles.icons}  />
+        <FontAwesome name="line-chart" style={styles.icons}  />
         <Text style={styles.text}>Progress</Text>
       </View>
 
       <View style={styles.iconContainer}>
-        <FontAwesome name="user" style={styles.icons}  />
+        <FontAwesome name="user-circle" style={styles.icons}  />
         <Text style={styles.text}>Profile</Text>
       </View>
     </View>

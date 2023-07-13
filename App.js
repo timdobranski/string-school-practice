@@ -27,7 +27,7 @@ export default function App() {
         resizeMode='cover'
       />
       <ScrollView>
-        <Header />
+      <Header />
         <Text style={styles.text}>
           {`
           Welcome to the String School mobile app.
