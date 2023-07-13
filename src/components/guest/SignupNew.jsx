@@ -29,7 +29,7 @@ This info is collected to allow for communication before your intro session, but
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flexGrow: 1,
     justifyContent: 'start',
     alignItems: 'center',
 

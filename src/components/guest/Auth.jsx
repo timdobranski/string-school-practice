@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Alert, StyleSheet, View, Switch, Text } from 'react-native'
+import { Alert, StyleSheet, View, ScrollView, Switch, Text } from 'react-native'
 import  supabase  from '../../../supabase'
 import { Button, Input } from 'react-native-elements'
 
@@ -10,7 +10,9 @@ export default function Auth() {
   const [loading, setLoading] = useState(false);
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
-  const {studentName, setStudentName} = useState('');
+  const [studentName, setStudentName] = useState('');
+  const [notes, setNotes] = useState('');
+  const [communicationPreference, setCommunicationPreference] = useState('');
 
   // async function signInWithEmail() {
   //   setLoading(true)
@@ -46,19 +48,42 @@ export default function Auth() {
         ios_backgroundColor="#9fc5e8"
       />
       <Text style={[styles.signupHeaderText, styles.signupType]}>{isParent ? `Parent/Guardian Signup` : `Student Signup`}</Text>
+      {isParent ? <Text style={[styles.signupHeaderText, styles.finePrint]}>{'(if your kiddo is older, they can still sign up separately later)'}</Text> : null}
     </View>
-  {isParent && (
+  {isParent ? (
     <View>
-      <View style={[styles.verticallySpaced, styles.mt20]}>
+      <View style={[styles.verticallySpaced]}>
         <Input
           label="Student Name"
           labelStyle={styles.label}
           onChangeText={(text) => setStudentName(text)}
           value={studentName}
-          placeholder="Enter student's name"
+          placeholder="rockstar in training"
           autoCapitalize="words"
-      />
-    </View>
+        />
+      </View>
+
+      <View style={[styles.verticallySpaced]}>
+        <Input
+          label="Your Name"
+          labelStyle={styles.label}
+          onChangeText={(text) => setName(text)}
+          value={studentName}
+          placeholder="future rockstar owes it all to..."
+          autoCapitalize="words"
+        />
+      </View>
+
+<View style={[styles.verticallySpaced]}>
+        <Input
+          label="Email"
+          labelStyle={styles.label}
+          onChangeText={(text) => setEmail(text)}
+          value={email}
+          placeholder="email@address.com"
+          autoCapitalize={'none'}
+        />
+      </View>
     <View style={styles.verticallySpaced}>
       <Input
         label="Phone"
@@ -69,35 +94,11 @@ export default function Auth() {
         autoCapitalize="none"
       />
     </View>
-  </View>
-)}
-      <View style={[styles.verticallySpaced, styles.mt20]}>
-        <Input
-          label="Name"
-          labelStyle={styles.label}
-          // leftIcon={{ type: 'font-awesome', name: 'envelope' }}
-          onChangeText={(text) => setName(text)}
-          value={email}
-          placeholder="Rockstar In Training"
-          autoCapitalize={'none'}
-        />
-      </View>
-      <View style={[styles.verticallySpaced, styles.mt20]}>
-        <Input
-          label="Email"
-          labelStyle={styles.label}
-          // leftIcon={{ type: 'font-awesome', name: 'envelope' }}
-          onChangeText={(text) => setEmail(text)}
-          value={email}
-          placeholder="email@address.com"
-          autoCapitalize={'none'}
-        />
-      </View>
-      <View style={styles.verticallySpaced}>
+
+    <View style={styles.verticallySpaced}>
         <Input
           label="Password"
           labelStyle={styles.label}
-          // leftIcon={{ type: 'font-awesome', name: 'lock' }}
           onChangeText={(text) => setPassword(text)}
           value={password}
           secureTextEntry={true}
@@ -105,6 +106,99 @@ export default function Auth() {
           autoCapitalize={'none'}
         />
       </View>
+
+      <View style={[styles.verticallySpaced ]}>
+        <Input
+          label="Communication Preference"
+          labelStyle={styles.label}
+          onChangeText={(text) => setCommunicationPreference(text)}
+          value={email}
+          placeholder="email, text, or phone"
+          autoCapitalize={'none'}
+        />
+      </View>
+
+      <View style={[styles.verticallySpaced]}>
+        <Input
+          label="Notes"
+          labelStyle={styles.label}
+          onChangeText={(text) => setNotes(text)}
+          value={email}
+          placeholder="anything you'd like me to know?"
+          autoCapitalize={'none'}
+        />
+      </View>
+
+  </View>
+):  <View >
+      <View style={[styles.verticallySpaced]}>
+        <Input
+          label="Name"
+          labelStyle={styles.label}
+          onChangeText={(text) => setName(text)}
+          value={email}
+          placeholder="rockstar in training"
+          autoCapitalize={'none'}
+        />
+      </View>
+
+      <View style={[styles.verticallySpaced]}>
+        <Input
+          label="Email"
+          labelStyle={styles.label}
+          onChangeText={(text) => setEmail(text)}
+          value={email}
+          placeholder="email@address.com"
+          autoCapitalize={'none'}
+        />
+      </View>
+
+      <View style={[styles.verticallySpaced]}>
+        <Input
+          label="Phone"
+          labelStyle={styles.label}
+          onChangeText={(text) => setPhone(text)}
+          value={email}
+          placeholder="enter phone number"
+          autoCapitalize={'none'}
+        />
+      </View>
+
+      <View style={styles.verticallySpaced}>
+        <Input
+          label="Password"
+          labelStyle={styles.label}
+          onChangeText={(text) => setPassword(text)}
+          value={password}
+          secureTextEntry={true}
+          placeholder="at least 6 characters"
+          autoCapitalize={'none'}
+        />
+      </View>
+
+      <View style={[styles.verticallySpaced ]}>
+        <Input
+          label="Communication Preference"
+          labelStyle={styles.label}
+          onChangeText={(text) => setCommunicationPreference(text)}
+          value={email}
+          placeholder="email, text, or phone"
+          autoCapitalize={'none'}
+        />
+      </View>
+
+      <View style={[styles.verticallySpaced]}>
+        <Input
+          label="Notes"
+          labelStyle={styles.label}
+          onChangeText={(text) => setNotes(text)}
+          value={email}
+          placeholder="anything you'd like me to know?"
+          autoCapitalize={'none'}
+        />
+      </View>
+    </View>
+  }
       {/* <View style={[styles.verticallySpaced, styles.mt20]}>
         <Button title="Sign in" disabled={loading} onPress={() => signInWithEmail()} />
       </View> */}
@@ -147,4 +241,9 @@ const styles = StyleSheet.create({
     color: '#2fc02d',
     fontFamily: 'economica-bold',
   },
+  finePrint: {
+    marginTop: 0,
+    marginBottom: 20,
+    fontSize: 18
+  }
 })
