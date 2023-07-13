@@ -21,6 +21,7 @@ const App = () => {
   const [session, setSession] = useState(null);
   const [fontsLoaded] = useFonts({
     'economica': require('./assets/fonts/Economica/Economica-Regular.ttf'),
+    'economica-bold': require('./assets/fonts/Economica/Economica-Bold.ttf'),
   });
 
   useEffect(() => {

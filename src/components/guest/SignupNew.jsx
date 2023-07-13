@@ -15,7 +15,7 @@ const SignupNew = () => {
 
         <Text style={styles.text}>{ `To book this spot for a free intro session, please fill in the fields below.\n
 This info is collected to allow for communication before your intro session, but once signed up you'll\
-also be able to access the rest of the app.`}
+ also be able to access the rest of the app.`}
         </Text>
 
 
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     borderRadius: 3,
     marginVertical: 30,
     paddingVertical: 8,
-    borderColor: 'white',
+    borderColor: '#147095',
     justifyContent: 'center',
   },
   spotText: {
