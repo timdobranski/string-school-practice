@@ -5,11 +5,27 @@ import { useFonts } from 'expo-font';
 import Schedule from './src/components/Schedule/Schedule';
 import Header from './src/components/Header/Header';
 import Footer from './src/components/Footer/Footer';
+import UserHome from './src/components/users/UserHome';
+import { useState, useEffect } from 'react'
+import supabase from './supabase'
+import Auth from './src/components/guest/Auth'
+import { Session } from '@supabase/supabase-js'
 
 const bgDim = process.env.EXPO_PUBLIC_BG_DIM;
-console.log('bgDim: ', bgDim);
 
-export default function App() {
+const App = () => {
+  const [session, setSession] = useState(Session || null);
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data }) => {
+      setSession(session)
+    })
+
+    supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session)
+    })
+  }, [])
+
   // Font handling
   const [fontsLoaded] = useFonts({
     'economica': require('./assets/fonts/Economica/Economica-Regular.ttf'),
@@ -38,6 +54,7 @@ export default function App() {
         </Text>
         <Schedule />
         <StatusBar style="auto" />
+        {session && session.user ? <UserHome key={session.user.id} session={session} /> : <Auth />}
       </ScrollView>
       <Footer />
     </View>
@@ -70,3 +87,5 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
 });
+
+export default App;

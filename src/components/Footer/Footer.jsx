@@ -19,7 +19,7 @@ export default function Footer () {
       </View>
 
       <View style={styles.iconContainer}>
-        <FontAwesome name='credit-card-alt' style={styles.icons}  />
+        <AntDesign name='creditcard' style={styles.icons}  />
         <Text style={styles.text}>Payments</Text>
       </View>
 
