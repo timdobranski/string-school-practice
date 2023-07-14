@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'rgba(0, 0, 0, 0)',
+    width: '75%',
   },
   nav:{
     flexDirection: 'row',
@@ -55,7 +56,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   dateHeaders:{
-    width: '75%',
+    width: '100%',
     backgroundColor: 'black',
     alignItems: 'center',
     borderWidth: 10,
@@ -85,12 +86,12 @@ const styles = StyleSheet.create({
 
   },
   spot:{
-    width: '55%',
+    width: '65%',
     textAlign: 'center',
   },
   time:{
     backgroundColor: 'white',
-    width: '10%',
+    width: '15%',
     textAlign: 'center',
   },
   monHeader:{

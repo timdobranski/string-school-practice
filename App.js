@@ -7,8 +7,6 @@ import supabase from './supabase';
 import { Session } from '@supabase/supabase-js';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-//import Header from './src/components/Header/Header';
-//import Footer from './src/components/Footer/Footer';
 import GuestHome from './src/components/guest/GuestHome';
 import UserHome from './src/components/users/UserHome';
 import SignupNew from './src/components/guest/SignupNew';
@@ -58,6 +56,7 @@ const App = () => {
             )}
             <Stack.Screen name="New User Signup" component={SignupNew} />
             <Stack.Screen name="Sign In" component={SignInView} />
+            <Stack.Screen name="User Home" component={UserHome} />
           </Stack.Navigator>
         </NavigationContainer>
       </ImageBackground>

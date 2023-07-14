@@ -21,12 +21,12 @@ const navigation = useNavigation();
     < ScrollView contentContainerStyle={styles.guestHomeContainer}>
       <Header />
       <Text style={styles.text}>
-        {`Welcome to the String School mobile app. Current students can sign in here.`}
+        {`Welcome to the String School mobile app! Current students can sign in below:`}
       </Text>
       <Pressable
         onPress={goToSignIn}
         style={styles.signInButton}>
-          <Text>Sign In</Text>
+          <Text style={styles.signInButtonText}>Sign In</Text>
       </Pressable>
       <Text style={styles.text}>
         {`To book new lessons, choose a spot below for a free introductory session`}
@@ -40,6 +40,7 @@ const navigation = useNavigation();
 const styles = StyleSheet.create({
   guestHomeContainer: {
     backgroundColor: 'transparent',
+    alignItems: 'center',
   },
   text: {
     color: 'white',
@@ -53,6 +54,14 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: 5,
     padding: 10,
+    width: '25%',
+    alignItems: 'center',
+    marginBottom: 30,
+  },
+  signInButtonText: {
+    fontFamily: 'economica',
+    fontSize: 20,
+
   }
 });
 

@@ -9,11 +9,9 @@ const SignupNew = () => {
       style={styles.backgroundImage}
       resizeMode='cover'>
       <ScrollView contentContainerStyle={styles.container}>
-        <View style={styles.spotContainer}>
-          <Text style={styles.spotText}>Monday, July 10th @ 7:00</Text>
-        </View>
 
-        <Text style={styles.text}>{ `Sign In Below:`}
+
+        <Text style={styles.text}>{ `Sign In`}
         </Text>
 
 
@@ -38,8 +36,9 @@ const styles = StyleSheet.create({
   },
   text: {
     color: 'white',
-    fontSize: 22,
+    fontSize: 35,
     fontFamily: 'economica',
+    marginTop: 30,
     marginBottom: 30,
     textAlign: 'center',
     marginHorizontal: 20,
