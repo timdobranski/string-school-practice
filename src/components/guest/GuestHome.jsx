@@ -3,14 +3,24 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Schedule from '../Schedule/Schedule';
 import { useNavigation } from '@react-navigation/native';
+import { useEffect }  from 'react';
 
 
-const GuestHome = () => {
+const GuestHome = ({ session }) => {
 const navigation = useNavigation();
 
   const goToSignIn = () => {
     navigation.navigate('Sign In');
   };
+  const goToUserHome = () => {
+    navigation.navigate('User Home');
+  };
+
+  useEffect(() => {
+    if (session && session.user) {
+      goToUserHome();
+    }
+  }, [])
 
   return (
     <ImageBackground

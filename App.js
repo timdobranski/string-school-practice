@@ -45,20 +45,16 @@ const App = () => {
         style={styles.backgroundImage}
         resizeMode='cover'
       >
-        <NavigationContainer>
-          <Stack.Navigator>
-            {session && session.user ? (
-              <Stack.Screen name="User Home">
-                {(props) => <UserHome {...props} session={session} />}
-              </Stack.Screen>
-            ) : (
-              <Stack.Screen name="Guest View" component={GuestHome} />
-            )}
-            <Stack.Screen name="New User Signup" component={SignupNew} />
-            <Stack.Screen name="Sign In" component={SignInView} />
-            <Stack.Screen name="User Home" component={UserHome} />
-          </Stack.Navigator>
-        </NavigationContainer>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName='Guest Home'>
+          <Stack.Screen name="Guest Home" component={GuestHome} />
+          <Stack.Screen name="New User Signup" component={SignupNew} />
+          <Stack.Screen name="Sign In" component={SignInView} />
+          <Stack.Screen name="User Home">
+            {(props) => <UserHome {...props} session={session} />}
+          </Stack.Screen>
+        </Stack.Navigator>
+      </NavigationContainer>
       </ImageBackground>
     </View>
   );

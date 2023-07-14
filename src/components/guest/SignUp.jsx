@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 import { Alert, StyleSheet, View, ScrollView, Switch, Text } from 'react-native'
 import  supabase  from '../../../supabase'
 import { Button, Input } from 'react-native-elements'
+import { useNavigation } from '@react-navigation/native';
 
-export default function Auth() {
+
+export default function SignUp () {
   const [isParent, setIsParent] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -14,16 +16,7 @@ export default function Auth() {
   const [notes, setNotes] = useState('');
   const [communicationPreference, setCommunicationPreference] = useState('');
 
-  // async function signInWithEmail() {
-  //   setLoading(true)
-  //   const { error } = await supabase.auth.signInWithPassword({
-  //     email: email,
-  //     password: password,
-  //   })
-
-  //   if (error) Alert.alert(error.message)
-  //   setLoading(false)
-  // }
+  const navigation = useNavigation();
 
   async function signUpWithEmail() {
     setLoading(true)
@@ -32,7 +25,11 @@ export default function Auth() {
       password: password,
     })
 
-    if (error) Alert.alert(error.message)
+    if (error) {
+      Alert.alert(error.message)
+    } else {
+      navigation.navigate('User Home'); // Navigate to the 'UserHome' screen on successful sign-in
+    }
     setLoading(false)
   }
 
@@ -60,6 +57,7 @@ export default function Auth() {
           value={studentName}
           placeholder="rockstar in training"
           autoCapitalize="words"
+          color='white'
         />
       </View>
 
@@ -68,9 +66,10 @@ export default function Auth() {
           label="Your Name"
           labelStyle={styles.label}
           onChangeText={(text) => setName(text)}
-          value={studentName}
+          value={name}
           placeholder="future rockstar owes it all to..."
           autoCapitalize="words"
+          color='white'
         />
       </View>
 
@@ -82,6 +81,7 @@ export default function Auth() {
           value={email}
           placeholder="email@address.com"
           autoCapitalize={'none'}
+          color='white'
         />
       </View>
     <View style={styles.verticallySpaced}>
@@ -92,6 +92,7 @@ export default function Auth() {
         value={phone}
         placeholder="Enter phone number"
         autoCapitalize="none"
+        color='white'
       />
     </View>
 
@@ -104,6 +105,7 @@ export default function Auth() {
           secureTextEntry={true}
           placeholder="at least 6 characters"
           autoCapitalize={'none'}
+          color='white'
         />
       </View>
 
@@ -115,6 +117,7 @@ export default function Auth() {
           value={email}
           placeholder="email, text, or phone"
           autoCapitalize={'none'}
+          color='white'
         />
       </View>
 
@@ -126,6 +129,7 @@ export default function Auth() {
           value={email}
           placeholder="anything you'd like me to know?"
           autoCapitalize={'none'}
+          color='white'
         />
       </View>
 
@@ -135,10 +139,11 @@ export default function Auth() {
         <Input
           label="Name"
           labelStyle={styles.label}
-          onChangeText={(text) => setName(text)}
-          value={email}
+          onChangeText={(text) => setStudentName(text)}
+          value={studentName}
           placeholder="rockstar in training"
           autoCapitalize={'none'}
+          color='white'
         />
       </View>
 
@@ -150,6 +155,7 @@ export default function Auth() {
           value={email}
           placeholder="email@address.com"
           autoCapitalize={'none'}
+          color='white'
         />
       </View>
 
@@ -158,9 +164,10 @@ export default function Auth() {
           label="Phone"
           labelStyle={styles.label}
           onChangeText={(text) => setPhone(text)}
-          value={email}
+          value={phone}
           placeholder="enter phone number"
           autoCapitalize={'none'}
+          color='white'
         />
       </View>
 
@@ -173,6 +180,7 @@ export default function Auth() {
           secureTextEntry={true}
           placeholder="at least 6 characters"
           autoCapitalize={'none'}
+          color='white'
         />
       </View>
 
@@ -181,9 +189,10 @@ export default function Auth() {
           label="Communication Preference"
           labelStyle={styles.label}
           onChangeText={(text) => setCommunicationPreference(text)}
-          value={email}
+          value={communicationPreference}
           placeholder="email, text, or phone"
           autoCapitalize={'none'}
+          color='white'
         />
       </View>
 
@@ -192,9 +201,10 @@ export default function Auth() {
           label="Notes"
           labelStyle={styles.label}
           onChangeText={(text) => setNotes(text)}
-          value={email}
+          value={notes}
           placeholder="anything you'd like me to know?"
           autoCapitalize={'none'}
+          color='white'
         />
       </View>
     </View>

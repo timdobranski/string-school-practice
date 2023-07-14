@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import supabase from '../../../supabase';
-import { StyleSheet, View, Alert, Text } from 'react-native';
+import { StyleSheet, View, Alert, Text, ImageBackground } from 'react-native';
 import { Button, Input } from 'react-native-elements';
+import Footer from '../Footer/Footer';
+import SignOut from './SignOut';
+import { useNavigation } from '@react-navigation/native';
 
 export default function UserHome({ session }) {
   const [loading, setLoading] = useState(true);
@@ -9,8 +12,15 @@ export default function UserHome({ session }) {
   const [website, setWebsite] = useState('');
   const [avatarUrl, setAvatarUrl] = useState('');
 
+  const navigation = useNavigation();
+  const navigateToSignIn = () => navigation.navigate('Sign In');
+
   useEffect(() => {
-    if (session) getProfile();
+    if (session) {
+      getProfile();
+    } else {
+      navigateToSignIn(); // Redirect to sign-in screen if user session is not available
+    }
   }, [session]);
 
   async function getProfile() {
@@ -69,56 +79,33 @@ export default function UserHome({ session }) {
   }
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>TEST!!!!</Text>
-      <View style={[styles.verticallySpaced, styles.mt20]}>
-        <Input label="Email" value={session?.user?.email} disabled />
-      </View>
-      <View style={styles.verticallySpaced}>
-        <Input
-          label="Username"
-          value={username || ''}
-          onChangeText={(text) => setUsername(text)}
-        />
-      </View>
-      <View style={styles.verticallySpaced}>
-        <Input
-          label="Website"
-          value={website || ''}
-          onChangeText={(text) => setWebsite(text)}
-        />
-      </View>
+    <ImageBackground
+      source={require('../../../assets/images/backgroundVerticalDimmer.jpg')}
+      style={styles.backgroundImage}
+      resizeMode='cover'>
+        <View style={styles.container}>
+          <SignOut />
+      <Text style={styles.text}>Welcome Home!</Text>
+          </View>
+      <Footer />
 
-      <View style={[styles.verticallySpaced, styles.mt20]}>
-        <Button
-          title={loading ? 'Loading ...' : 'Update'}
-          onPress={() => updateProfile({ username, website, avatar_url: avatarUrl })}
-          disabled={loading}
-        />
-      </View>
+      </ImageBackground>
 
-      <View style={styles.verticallySpaced}>
-        <Button title="Sign Out" onPress={() => supabase.auth.signOut()} />
-      </View>
-    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 40,
-    padding: 12,
-    width: '80%',
+    flex: 1,
   },
-  verticallySpaced: {
-    paddingTop: 4,
-    paddingBottom: 4,
-    alignSelf: 'stretch',
+  backgroundImage: {
+    flex: 1,
   },
-  mt20: {
-    marginTop: 20,
+  content: {
+    flex: 1,
+    paddingBottom: 50, // Adjust the paddingBottom to make space for the Footer
   },
   text: {
     color: 'white',
-  }
-})
+  },
+});

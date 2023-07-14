@@ -2,8 +2,11 @@ import React, { useState } from 'react'
 import { Alert, StyleSheet, View, ScrollView, Switch, Text } from 'react-native'
 import  supabase  from '../../../supabase'
 import { Button, Input } from 'react-native-elements'
+import { useNavigation } from '@react-navigation/native';
+
 
 export default function SignIn() {
+  const navigation = useNavigation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -16,7 +19,11 @@ export default function SignIn() {
       password: password,
     })
 
-    if (error) Alert.alert(error.message)
+    if (error) {
+      Alert.alert(error.message)
+    } else {
+      navigation.navigate('User Home'); // Navigate to the 'UserHome' screen on successful sign-in
+    }
     setLoading(false)
   }
 
@@ -31,6 +38,7 @@ export default function SignIn() {
           value={email}
           placeholder="email@address.com"
           autoCapitalize={'none'}
+          color='white'
         />
       </View>
 
