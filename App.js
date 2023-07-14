@@ -54,9 +54,7 @@ const App = () => {
           <Stack.Screen name="New User Signup" component={SignupNew} />
           <Stack.Screen name="Sign In" component={SignInView} />
           <Stack.Screen name="Check Email" component={CheckEmail} />
-          <Stack.Screen name="User Home">
-            {(props) => <UserHome {...props} session={session} />}
-          </Stack.Screen>
+          <Stack.Screen name="User Home" component={UserHome} />
         </Stack.Navigator>
       </NavigationContainer>
       </ImageBackground>

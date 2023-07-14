@@ -6,7 +6,7 @@ import Footer from '../Footer/Footer';
 import SignOut from './SignOut';
 import { useNavigation } from '@react-navigation/native';
 
-export default function UserHome({ session }) {
+export default function UserHome() {
   const [loading, setLoading] = useState(true);
   const [username, setUsername] = useState('');
   const [website, setWebsite] = useState('');
@@ -14,6 +14,7 @@ export default function UserHome({ session }) {
 
   const navigation = useNavigation();
   const navigateToSignIn = () => navigation.navigate('Sign In');
+  const session = supabase.auth.session();
 
   useEffect(() => {
     if (session) {
