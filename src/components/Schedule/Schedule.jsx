@@ -1,6 +1,7 @@
 import { Text, View, Pressable } from 'react-native';
 import styles from './scheduleStyling.js';
 import { useNavigation } from '@react-navigation/native';
+import { Ionicons } from '@expo/vector-icons';
 
 export default function Schedule () {
   const navigation = useNavigation();
@@ -12,11 +13,17 @@ export default function Schedule () {
   return (
     // <ScrollView style={styles.scrollView}>
       <View style={styles.contentContainer}>
-  <Pressable style={styles.nav}>
-    <Text style={[styles.navLeft]}>{'<'}</Text>
-    <Text style={[styles.navCenter]}>July 10th - July 17th</Text>
-    <Text style={styles.navRight}>{'>'}</Text>
-  </Pressable>
+        <View style={styles.nav}>
+          <Pressable style={styles.navLeft}>
+            <Ionicons name="arrow-back-circle" size={50} color="white" />
+          </Pressable>
+
+        <Text style={[styles.navCenter]}>July 10th - July 17th</Text>
+
+        <Pressable style={styles.navRight}>
+        <Ionicons name="arrow-forward-circle" size={50} color="white" />
+        </Pressable>
+        </View>
 
       <Pressable style={[styles.monHeader, styles.dateHeaders]}>
         <Text style={styles.headerText}>Monday, July 10th</Text>

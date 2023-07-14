@@ -22,6 +22,7 @@ export default function SignIn() {
     if (error) {
       Alert.alert(error.message)
     } else {
+      console.log('SignIn navigating to User Home');
       navigation.navigate('User Home'); // Navigate to the 'UserHome' screen on successful sign-in
     }
     setLoading(false)

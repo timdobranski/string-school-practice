@@ -45,7 +45,7 @@ export default function SignUp () {
         ios_backgroundColor="#9fc5e8"
       />
       <Text style={[styles.signupHeaderText, styles.signupType]}>{isParent ? `Parent/Guardian Signup` : `Student Signup`}</Text>
-      {isParent ? <Text style={[styles.signupHeaderText, styles.finePrint]}>{'(if your kiddo is older, they can still sign up separately later)'}</Text> : null}
+      {isParent ? <Text style={[styles.signupHeaderText, styles.finePrint]}>{'(if your kiddo is older, they can make an account later too or use yours)'}</Text> : null}
     </View>
   {isParent ? (
     <View>
@@ -55,7 +55,7 @@ export default function SignUp () {
           labelStyle={styles.label}
           onChangeText={(text) => setStudentName(text)}
           value={studentName}
-          placeholder="rockstar in training"
+          placeholder="rockstar in training..."
           autoCapitalize="words"
           color='white'
         />
@@ -67,7 +67,7 @@ export default function SignUp () {
           labelStyle={styles.label}
           onChangeText={(text) => setName(text)}
           value={name}
-          placeholder="future rockstar owes it all to..."
+          placeholder="owes it all to..."
           autoCapitalize="words"
           color='white'
         />
@@ -141,7 +141,7 @@ export default function SignUp () {
           labelStyle={styles.label}
           onChangeText={(text) => setStudentName(text)}
           value={studentName}
-          placeholder="rockstar in training"
+          placeholder="rockstar in training..."
           autoCapitalize={'none'}
           color='white'
         />

@@ -2,16 +2,21 @@ import { ImageBackground, StyleSheet, Text, ScrollView, Pressable } from 'react-
 import Header from '../Header/Header';
 import Schedule from '../Schedule/Schedule';
 import { useNavigation } from '@react-navigation/native';
-import { useEffect }  from 'react';
+import { useEffect, useState, useContext }  from 'react';
+// import supabase from '../../../supabase';
+import { SessionContext } from '../helpers/SessionContext';
 
 
-const GuestHome = ({ session }) => {
-const navigation = useNavigation();
+const GuestHome = () => {
+
+  const session = useContext(SessionContext)
+  const navigation = useNavigation();
 
   const goToSignIn = () => {
     navigation.navigate('Sign In');
   };
   const goToUserHome = () => {
+    console.log('inside goToUserHome in GuestHome. ')
     navigation.navigate('User Home');
   };
 
@@ -19,7 +24,7 @@ const navigation = useNavigation();
     if (session && session.user) {
       goToUserHome();
     }
-  }, [])
+    }, [])
 
   return (
     <ImageBackground

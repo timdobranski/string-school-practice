@@ -1,8 +1,10 @@
 import { View, Text, StyleSheet, Pressable } from 'react-native';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
+import supabase from '../../../supabase';
 
-const CheckEmail = ({ session }) => {
+const CheckEmail = () => {
+  const [session, setSession] = useState(null);
   const navigation = useNavigation();
 
   const navigateToGuestHome = () => {
@@ -14,12 +16,14 @@ const CheckEmail = ({ session }) => {
 
 
     useEffect(() => {
+      console.log('session in checkEmail: ', supabase.auth.session())
+      setSession(supabase.auth.session());
       if (session) {
         navigateToUserHome()
       } else {
         navigateToGuestHome(); // Redirect to sign-in screen if user session is not available
       }
-    }, [session]);
+    }, []);
 
 
   return (

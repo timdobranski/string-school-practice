@@ -1,7 +1,13 @@
 import SignUp from './SignUp';
-import { View, Text, ImageBackground, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, ImageBackground, StyleSheet, ScrollView, Pressable } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { Ionicons } from '@expo/vector-icons';
+
 
 const SignupNew = () => {
+  const navigation = useNavigation();
+
+  const goToGuestHome = () => navigation.navigate('Guest Home');
 
   return (
     <ImageBackground
@@ -9,6 +15,11 @@ const SignupNew = () => {
       style={styles.backgroundImage}
       resizeMode='cover'>
       <ScrollView contentContainerStyle={styles.container}>
+        <Pressable onPress={goToGuestHome} style={styles.backContainer}>
+          <Ionicons name="arrow-back-circle" size={50} color="white" />
+          {/* <Text style={styles.text}>{ `To schedule`}</Text> */}
+        </Pressable>
+
         <View style={styles.spotContainer}>
           <Text style={styles.spotText}>Monday, July 10th @ 7:00</Text>
         </View>
@@ -63,6 +74,9 @@ const styles = StyleSheet.create({
     color: 'white',
     fontFamily: 'economica',
     fontSize: 30,
+  },
+  backContainer: {
+    marginTop: 20
   }
 });
 
