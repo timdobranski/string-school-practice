@@ -1,5 +1,5 @@
 import SignIn from './SignIn';
-import { View, Text, Pressable, ImageBackground, StyleSheet, ScrollView } from 'react-native';
+import { Text, ImageBackground, StyleSheet, ScrollView } from 'react-native';
 
 const SignupNew = () => {
 

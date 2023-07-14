@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Alert, StyleSheet, View, ScrollView, Switch, Text } from 'react-native'
+import { Alert, StyleSheet, View } from 'react-native'
 import  supabase  from '../../../supabase'
 import { Button, Input } from 'react-native-elements'
 import { useNavigation } from '@react-navigation/native';
@@ -51,6 +51,7 @@ export default function SignIn() {
           secureTextEntry={true}
           placeholder="at least 6 characters"
           autoCapitalize={'none'}
+          color='white'
         />
       </View>
       <View style={[styles.verticallySpaced, styles.mt20]}>

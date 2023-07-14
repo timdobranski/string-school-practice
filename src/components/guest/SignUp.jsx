@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Alert, StyleSheet, View, ScrollView, Switch, Text } from 'react-native'
+import { Alert, StyleSheet, View, Switch, Text } from 'react-native'
 import  supabase  from '../../../supabase'
 import { Button, Input } from 'react-native-elements'
 import { useNavigation } from '@react-navigation/native';
@@ -28,7 +28,7 @@ export default function SignUp () {
     if (error) {
       Alert.alert(error.message)
     } else {
-      navigation.navigate('User Home'); // Navigate to the 'UserHome' screen on successful sign-in
+      navigation.navigate('Check Email'); // Navigate to the 'UserHome' screen on successful sign-in
     }
     setLoading(false)
   }

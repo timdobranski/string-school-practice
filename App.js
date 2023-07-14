@@ -1,19 +1,20 @@
 import 'react-native-url-polyfill/auto';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Image, View, ImageBackground } from 'react-native';
+// import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, ImageBackground, SafeAreaView } from 'react-native';
 import { useFonts } from 'expo-font';
 import { useEffect, useState } from 'react';
 import supabase from './supabase';
-import { Session } from '@supabase/supabase-js';
+// import { Session } from '@supabase/supabase-js';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+
 import GuestHome from './src/components/guest/GuestHome';
 import UserHome from './src/components/users/UserHome';
 import SignupNew from './src/components/guest/SignupNew';
 import SignInView from './src/components/guest/SignInView';
+import CheckEmail from './src/components/guest/CheckEmail';
 //import Background from './src/components/Background';
 
-const bgDim = process.env.EXPO_PUBLIC_BG_DIM;
 const Stack = createStackNavigator();
 
 const App = () => {
@@ -39,24 +40,27 @@ const App = () => {
   }
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <ImageBackground
         source={require('./assets/images/backgroundVerticalDimmer.jpg')}
         style={styles.backgroundImage}
         resizeMode='cover'
       >
       <NavigationContainer>
-        <Stack.Navigator initialRouteName='Guest Home'>
+        <Stack.Navigator
+          initialRouteName='Guest Home'
+          screenOptions={{ headerShown: false }}>
           <Stack.Screen name="Guest Home" component={GuestHome} />
           <Stack.Screen name="New User Signup" component={SignupNew} />
           <Stack.Screen name="Sign In" component={SignInView} />
+          <Stack.Screen name="Check Email" component={CheckEmail} />
           <Stack.Screen name="User Home">
             {(props) => <UserHome {...props} session={session} />}
           </Stack.Screen>
         </Stack.Navigator>
       </NavigationContainer>
       </ImageBackground>
-    </View>
+    </SafeAreaView>
   );
 };
 

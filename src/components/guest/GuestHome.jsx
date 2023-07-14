@@ -1,6 +1,5 @@
-import { Image, ImageBackground, StyleSheet, Text, View, ScrollView, Pressable } from 'react-native';
+import { ImageBackground, StyleSheet, Text, ScrollView, Pressable } from 'react-native';
 import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
 import Schedule from '../Schedule/Schedule';
 import { useNavigation } from '@react-navigation/native';
 import { useEffect }  from 'react';

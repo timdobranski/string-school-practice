@@ -1,4 +1,4 @@
-import { Text, View, ScrollView, Pressable } from 'react-native';
+import { Text, View, Pressable } from 'react-native';
 import styles from './scheduleStyling.js';
 import { useNavigation } from '@react-navigation/native';
 

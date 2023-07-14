@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import supabase from '../../../supabase';
 import { StyleSheet, View, Alert, Text, ImageBackground } from 'react-native';
-import { Button, Input } from 'react-native-elements';
+// import { Button, Input } from 'react-native-elements';
 import Footer from '../Footer/Footer';
 import SignOut from './SignOut';
 import { useNavigation } from '@react-navigation/native';
@@ -51,32 +51,32 @@ export default function UserHome({ session }) {
     }
   }
 
-  async function updateProfile({ username, website, avatar_url }) {
-    try {
-      setLoading(true);
-      if (!session?.user) throw new Error('No user on the session!');
+  // async function updateProfile({ username, website, avatar_url }) {
+  //   try {
+  //     setLoading(true);
+  //     if (!session?.user) throw new Error('No user on the session!');
 
-      const updates = {
-        id: session?.user.id,
-        username,
-        website,
-        avatar_url,
-        updated_at: new Date(),
-      };
+  //     const updates = {
+  //       id: session?.user.id,
+  //       username,
+  //       website,
+  //       avatar_url,
+  //       updated_at: new Date(),
+  //     };
 
-      let { error } = await supabase.from('profiles').upsert(updates);
+  //     let { error } = await supabase.from('profiles').upsert(updates);
 
-      if (error) {
-        throw error;
-      }
-    } catch (error) {
-      if (error instanceof Error) {
-        Alert.alert(error.message);
-      }
-    } finally {
-      setLoading(false);
-    }
-  }
+  //     if (error) {
+  //       throw error;
+  //     }
+  //   } catch (error) {
+  //     if (error instanceof Error) {
+  //       Alert.alert(error.message);
+  //     }
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // }
 
   return (
     <ImageBackground
@@ -85,12 +85,10 @@ export default function UserHome({ session }) {
       resizeMode='cover'>
         <View style={styles.container}>
           <SignOut />
-      <Text style={styles.text}>Welcome Home!</Text>
-          </View>
+          <Text style={styles.text}>Welcome Home!</Text>
+        </View>
       <Footer />
-
       </ImageBackground>
-
   );
 }
 
@@ -103,7 +101,7 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    paddingBottom: 50, // Adjust the paddingBottom to make space for the Footer
+    paddingBottom: 50,
   },
   text: {
     color: 'white',
