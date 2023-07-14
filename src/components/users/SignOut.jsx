@@ -1,15 +1,15 @@
 import React from 'react';
 import { Alert, StyleSheet, Text, Pressable } from 'react-native';
 import supabase from '../../../supabase';
+import goTo from '../helpers/navigation';
 import { useNavigation } from '@react-navigation/native';
 
 export default function SignOut() {
-  const navigation = useNavigation();
-
+  const nav = useNavigation();
   async function signOut() {
     try {
       await supabase.auth.signOut();
-      navigation.navigate('Guest Home');
+      goTo.GuestHome(nav);
     } catch (error) {
       Alert.alert('Error signing out', error.message);
     }

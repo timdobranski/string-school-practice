@@ -22,6 +22,7 @@ const GuestHome = () => {
 
   useEffect(() => {
     if (session && session.user) {
+      console.log('sending to user home from guest home...')
       goToUserHome();
     }
     }, [])
@@ -34,9 +35,9 @@ const GuestHome = () => {
   >
     < ScrollView contentContainerStyle={styles.guestHomeContainer}>
       <Header />
-      <Text style={styles.text}>
+      {/* <Text style={styles.text}>
         {`Welcome to the String School mobile app! Current students can sign in below:`}
-      </Text>
+      </Text> */}
       <Pressable
         onPress={goToSignIn}
         style={styles.signInButton}>

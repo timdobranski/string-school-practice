@@ -2,13 +2,10 @@ import SignIn from './SignIn';
 import { Text, ImageBackground, StyleSheet, ScrollView, Pressable } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { FontAwesome, AntDesign, MaterialIcons, Ionicons } from '@expo/vector-icons';
+import goTo from '../helpers/navigation';
 
-const SignupNew = () => {
-  const navigation = useNavigation();
-  const goToGuestHome = () => {
-    navigation.navigate('Guest Home');
-  };
-
+const SignInView = () => {
+  const nav = useNavigation();
   return (
     <ImageBackground
       source={require('../../../assets/images/backgroundVerticalDimmer.jpg')}
@@ -17,7 +14,7 @@ const SignupNew = () => {
       <ScrollView contentContainerStyle={styles.container}>
 
 
-        <Pressable onPress={goToGuestHome} style={styles.backContainer}>
+        <Pressable onPress={() => {goTo.GuestHome(nav)}} style={styles.backContainer}>
           <Ionicons name="arrow-back-circle" size={50} color="white" />
           {/* <Text style={styles.text}>{ `To schedule`}</Text> */}
         </Pressable>
@@ -78,4 +75,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default SignupNew;
+export default SignInView;

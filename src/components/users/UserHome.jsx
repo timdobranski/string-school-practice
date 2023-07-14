@@ -1,64 +1,23 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import supabase from '../../../supabase';
 import { StyleSheet, View, Alert, Text, ImageBackground } from 'react-native';
 import Footer from '../Footer/Footer';
 import SignOut from './SignOut';
-import { useNavigation } from '@react-navigation/native';
-import { SessionContext } from '../helpers/SessionContext';
+import goTo from '../helpers/navigation';
+
 
 export default function UserHome() {
-  const [loading, setLoading] = useState(true);
-  const [username, setUsername] = useState('');
-  const [website, setWebsite] = useState('');
-  const [avatarUrl, setAvatarUrl] = useState('');
-  const sessionObj = useContext(SessionContext);
-  const session = sessionObj.session;
 
-  const navigation = useNavigation();
-  const navigateToSignIn = () => navigation.navigate('Sign In');
-  // const [session, setSession] = useState(null);
-
-  useEffect(() => {
-    if (session && session.user) {
-      console.log('session.user: ', session.user)
-      // setSession(session.user);
-      // getProfile();
-    } else {
-      console.log('no session in UserHome: ', session);
-      navigateToSignIn();
-    }
+    useEffect(() => {
+      supabase.auth.getSession()
+        .then((data) => {
+          console.log('Session in UserHome: ', data.session)
+        })
+        .catch((error) => {
+          console.log('error in UserHome: ', error)
+          //goTo.signIn();
+        })
     }, [])
-
-
-
-  // async function getProfile() {
-  //   try {
-  //     setLoading(true);
-  //     console.log('session: ', session);
-  //     if (!session?.user) throw new Error('No user on the session!');
-
-  //     let { data, error, status } = await supabase
-  //       .from('profiles')
-  //       .select(`username, website, avatar_url`)
-  //       .eq('id', session?.user.id)
-  //       .single();
-  //     if (error && status !== 406) {
-  //       throw error;
-  //     }
-
-  //     if (data) {
-  //       setUsername(data.username);
-  //       setWebsite(data.website);
-  //       setAvatarUrl(data.avatar_url);
-  //     }
-  //   } catch (error) {
-  //     if (error instanceof Error) {
-  //       Alert.alert(error.message);
-  //     }
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // }
 
   return (
     <ImageBackground
@@ -73,7 +32,6 @@ export default function UserHome() {
     </ImageBackground>
   );
 }
-
 
 const styles = StyleSheet.create({
   container: {

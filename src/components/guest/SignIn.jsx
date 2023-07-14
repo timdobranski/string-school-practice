@@ -2,11 +2,12 @@ import React, { useState } from 'react'
 import { Alert, StyleSheet, View } from 'react-native'
 import  supabase  from '../../../supabase'
 import { Button, Input } from 'react-native-elements'
+import goTo from '../helpers/navigation';
 import { useNavigation } from '@react-navigation/native';
 
 
 export default function SignIn() {
-  const navigation = useNavigation();
+  const nav = useNavigation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -22,8 +23,7 @@ export default function SignIn() {
     if (error) {
       Alert.alert(error.message)
     } else {
-      console.log('SignIn navigating to User Home');
-      navigation.navigate('User Home'); // Navigate to the 'UserHome' screen on successful sign-in
+      goTo.UserHome(nav);
     }
     setLoading(false)
   }
