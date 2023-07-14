@@ -7,37 +7,13 @@ import goTo from '../helpers/navigation';
 const CheckEmail = () => {
   const nav = useNavigation();
 
-      useEffect(() => {
-        const authListener = supabase.auth.onAuthStateChange((event, session) => {
-          // event can be 'SIGNED_IN', 'SIGNED_OUT', or 'SESSION_EXPIRED'
-          // session contains the user session data
-
-          if (event === 'CONFIRMATION_SUCCESS') {
-            // User signed in
-            console.log('User confirmed email:', session.user);
-            goTo.UserHome(nav);
-          } else if (event === 'SIGNED_OUT') {
-            // User signed out
-            console.log('User signed out');
-          } else if (event === 'SESSION_EXPIRED') {
-            // User session expired
-            console.log('User session expired');
-          }
-        });
-
-        // Clean up the event listener when the component unmounts
-        return () => {
-          authListener.unsubscribe();
-        };
-    }, []);
-
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Almost done!</Text>
-      <Text style={styles.text}>Just check your email for a link to sign in.</Text>
-      <Pressable style={styles.button} onPress={() => {goTo.GuestHome(nav)}}>
-        <Text style={styles.buttonText}>Return Home</Text>
+      <Text style={styles.header}>All set!</Text>
+      <Text style={styles.text}>Just check your email for a confirmation link at your convenience.</Text>
+      <Pressable style={styles.button} onPress={() => {goTo.UserHome(nav)}}>
+        <Text style={styles.buttonText}>Home</Text>
       </Pressable>
     </View>
   )

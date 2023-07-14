@@ -1,9 +1,10 @@
 import 'react-native-url-polyfill/auto';
 import { StyleSheet, ImageBackground, SafeAreaView } from 'react-native';
+import { useEffect } from 'react';
 import { useFonts } from 'expo-font';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-
+import { Linking } from 'expo-linking';
 
 // Screens
 import GuestHome from './src/components/guest/GuestHome';
@@ -20,11 +21,13 @@ const App = () => {
     'economica': require('./assets/fonts/Economica/Economica-Regular.ttf'),
     'economica-bold': require('./assets/fonts/Economica/Economica-Bold.ttf'),
   });
+  useEffect(() => {
+    console.log('App.js useEffect');
+  }, [])
 
   if (!fontsLoaded) {
     return null;
   }
-
 
 
   return (

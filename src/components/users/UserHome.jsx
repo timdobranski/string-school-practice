@@ -4,19 +4,24 @@ import { StyleSheet, View, Alert, Text, ImageBackground } from 'react-native';
 import Footer from '../Footer/Footer';
 import SignOut from './SignOut';
 import goTo from '../helpers/navigation';
+import { useNavigation } from '@react-navigation/native';
 
 
 export default function UserHome() {
+  const [userSession, setUserSession] = useState(null);
+
+  async function getAndSetSession ()  {
+    const { data, error } = await supabase.auth.getSession()
+    if (data) {
+      console.log('Session User ', data.session.user.email)
+      setUserSession(data.session)
+    }
+    if (error) {console.log('Error in getSession; navigating to Guest Home: ', error);
+      goTo.GuestHome(nav);}
+  }
 
     useEffect(() => {
-      supabase.auth.getSession()
-        .then((data) => {
-          console.log('Session in UserHome: ', data.session)
-        })
-        .catch((error) => {
-          console.log('error in UserHome: ', error)
-          //goTo.signIn();
-        })
+      getAndSetSession();
     }, [])
 
   return (
@@ -48,44 +53,3 @@ const styles = StyleSheet.create({
     color: 'white',
   },
 });
-
-
-// import React, { useEffect } from 'react';
-// import { View, Text } from 'react-native';
-// import { useNavigation } from '@react-navigation/native';
-// import supabase from '../../../supabase';
-
-// const UserHome = () => {
-//   const navigation = useNavigation();
-
-//   useEffect(() => {
-//     checkSession();
-//   }, []);
-
-//   const checkSession = async () => {
-//     const { user, error } = await supabase.auth.getSession();
-//     if (error) {
-//       // Error occurred while checking session
-//       console.log('Error checking session:', error);
-//       // Navigate to the 'Guest Home' page
-//       navigation.navigate('GuestHome');
-//     } else if (user) {
-//       // User is signed in
-//       // Perform any necessary actions or navigate to a different screen
-//       // For example:
-//       // navigation.navigate('Profile');
-//     } else {
-//       // User is not signed in
-//       // Navigate to the 'Guest Home' page
-//       navigation.navigate('Guest Home');
-//     }
-//   };
-
-//   return (
-//     <View>
-//       <Text>Loading...</Text>
-//     </View>
-//   );
-// };
-
-// export default UserHome;
