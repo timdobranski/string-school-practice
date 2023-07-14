@@ -3,29 +3,28 @@ import Header from '../Header/Header';
 import Schedule from '../Schedule/Schedule';
 import { useNavigation } from '@react-navigation/native';
 import { useEffect, useState, useContext }  from 'react';
-// import supabase from '../../../supabase';
-import { SessionContext } from '../helpers/SessionContext';
+import goTo from '../helpers/navigation';
+import supabase from '../../../supabase';
+
+
 
 
 const GuestHome = () => {
+  const nav = useNavigation();
 
-  const session = useContext(SessionContext)
-  const navigation = useNavigation();
+  // async function getAndSetSession () {
+  //   const { data, error } = await supabase.auth.getSession()
+  //   if (data.session.user) {
+  //     console.log(`User ${data.session.user.email} signed in; redirecting from GuestHome to UserHome...`)
+  //   }
+  //   if (error) {console.log('Error in getSession; navigating to Guest Home: ', error);
+  //     goTo.GuestHome(nav);}
+  // }
 
-  const goToSignIn = () => {
-    navigation.navigate('Sign In');
-  };
-  const goToUserHome = () => {
-    console.log('inside goToUserHome in GuestHome. ')
-    navigation.navigate('User Home');
-  };
+  // useEffect(() => {
+  //   getAndSetSession();
 
-  useEffect(() => {
-    if (session && session.user) {
-      console.log('sending to user home from guest home...')
-      goToUserHome();
-    }
-    }, [])
+  //   }, [])
 
   return (
     <ImageBackground
@@ -39,7 +38,7 @@ const GuestHome = () => {
         {`Welcome to the String School mobile app! Current students can sign in below:`}
       </Text> */}
       <Pressable
-        onPress={goToSignIn}
+        onPress={() =>{goTo.SignIn(nav)}}
         style={styles.signInButton}>
           <Text style={styles.signInButtonText}>Sign In</Text>
       </Pressable>
