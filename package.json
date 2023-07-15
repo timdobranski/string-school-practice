@@ -21,6 +21,7 @@
     "eas-cli": "^3.15.1",
     "expo": "^49.0.2",
     "expo-constants": "~14.4.2",
+    "expo-dev-client": "^2.4.6",
     "expo-font": "~11.4.0",
     "expo-linking": "~5.0.2",
     "expo-secure-store": "~12.3.1",
