@@ -12,20 +12,6 @@ import supabase from '../../../supabase';
 const GuestHome = () => {
   const nav = useNavigation();
 
-  // async function getAndSetSession () {
-  //   const { data, error } = await supabase.auth.getSession()
-  //   if (data.session.user) {
-  //     console.log(`User ${data.session.user.email} signed in; redirecting from GuestHome to UserHome...`)
-  //   }
-  //   if (error) {console.log('Error in getSession; navigating to Guest Home: ', error);
-  //     goTo.GuestHome(nav);}
-  // }
-
-  // useEffect(() => {
-  //   getAndSetSession();
-
-  //   }, [])
-
   return (
     <ImageBackground
     source={require('../../../assets/images/backgroundVerticalDimmer.jpg')}
@@ -43,7 +29,7 @@ const GuestHome = () => {
           <Text style={styles.signInButtonText}>Sign In</Text>
       </Pressable>
       <Text style={styles.text}>
-        {`To book new lessons, choose a spot below for a free introductory session`}
+        {`To book new lessons, choose a spot below to schedule a free introductory session`}
       </Text>
       <Schedule />
     </ScrollView>
